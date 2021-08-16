@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+          <div class="card">
+              <div class="card-body text-center">
+                <span class="titulo">{{titulo | uppercase }}</span>
+                <form class="mt-3"[formGroup] = "proyectoForm" (ngSubmit) = "agregarProyecto()">
+                    <div class="mb-3">
+                     <input type="text" formControlName="nombre"
+                     class="form-control form-control-lg" placeholder="Proyecto" >  
+                     <div class="text-danger"
+                        *ngIf ="proyectoForm.get('nombre')?.hasError('required') && proyectoForm.get('nombre')?.touched">
+                         <span>El nombre del proyecto <strong>es obligatorio</strong></span>
+                     </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" formControlName="cliente"
+                         class="form-control form-control-lg" placeholder="Cliente" > 
+                    <div class="text-danger"
+                        *ngIf ="proyectoForm.get('cliente')?.hasError('required') && proyectoForm.get('cliente')?.touched">
+                         <span>El nombre del cliente <strong>es obligatorio</strong></span>
+                     </div> 
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" formControlName="estatus"
+                         class="form-control form-control-lg" placeholder="Estatus" >  
+                    <div class="text-danger"
+                         *ngIf ="proyectoForm.get('estatus')?.hasError('required') && proyectoForm.get('estatus')?.touched">
+                          <span>El Estatus <strong>es obligatorio</strong></span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" formControlName="interna"
+                         class="form-control form-control-lg" placeholder="Os interna" >  
+                    <div class="text-danger"
+                        *ngIf ="proyectoForm.get('interna')?.hasError('required') && proyectoForm.get('interna')?.touched">
+                         <span>La Os Interna <strong>es obligatoria</strong></span>
+                     </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" formControlName="usuario1"
+                         class="form-control form-control-lg" placeholder="Usuario1" >  
+                    <div class="text-danger"
+                         *ngIf ="proyectoForm.get('usuario1')?.hasError('required') && proyectoForm.get('usuario1')?.touched">
+                          <span>El usuario 1 <strong>es obligatorio</strong></span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text"  formControlName="usuario2"
+                         class="form-control form-control-lg" placeholder="Usuario 2" >  
+                    <div class="text-danger"
+                         *ngIf ="proyectoForm.get('usuario2')?.hasError('required') && proyectoForm.get('usuario2')?.touched">
+                          <span>El usuario 2 <strong>es obligatorio</strong></span>
+                      </div>     
+                    </div>
+                    <div class="mb-3">
+                        <input type="text"  formControlName="fecha"
+                         class="form-control form-control-lg" placeholder="Fecha de Inicio" >  
+                    <div class="text-danger"
+                         *ngIf ="proyectoForm.get('fecha')?.hasError('required') && proyectoForm.get('fecha')?.touched">
+                          <span>La fecha <strong>es obligatoria</strong></span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <button routerLink = "/" class="btn btn-secondary btn-lg float-start">Regresar</button>
+                        <button type = "submit" [disabled]= "proyectoForm.invalid " class = "btn btn-success  btn-lg float-end" >Guardar</button>
+                    </div>
+                    
+                    
+                </form>
+            </div>
+          </div>
+      </div>
+  </div>  
+</div>
